@@ -1,15 +1,76 @@
-# React + TypeScript + Vite
+# Form Builder Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A dynamic form builder application built with React, TypeScript, and Vite. This application allows users to create, customize, and preview forms with various field types and validation rules.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Create and manage custom forms
+- Add different types of form fields (text, number, select, etc.)
+- Configure validation rules for form fields
+- Preview forms before publishing
+- Responsive design with Material-UI
+- Type-safe development with TypeScript
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React 18+ with TypeScript
+- Vite for fast development and building
+- Material-UI for component library
+- Redux Toolkit for state management
+- ESLint for code quality
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 16.0 or higher
+- npm or yarn package manager
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd form-builder
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Start the development server:
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+The application will be available at `http://localhost:5173`
+
+## Project Structure
+
+```
+src/
+├── components/         # Reusable UI components
+├── features/          # Redux slices and feature-specific code
+├── pages/            # Main application pages/routes
+├── store/            # Redux store configuration
+└── theme.ts          # Material-UI theme customization
+```
+
+## Development
+
+### Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run lint` - Run ESLint
+- `npm run preview` - Preview production build
+
+### ESLint Configuration
 
 ```js
 export default tseslint.config([
@@ -39,31 +100,28 @@ export default tseslint.config([
 ])
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Components
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Main Components
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. **CreateForm** (`pages/CreateForm.tsx`)
+   - Main form creation interface
+   - Manages form fields and validation rules
+   - Handles form submission and validation
+
+2. **FieldEditor** (`components/FieldEditor.tsx`)
+   - Configures individual form fields
+   - Supports different field types
+   - Manages field-specific settings
+
+3. **ValidationRulesSection** (`components/ValidationRulesSection.tsx`)
+   - Configures field validation rules
+   - Supports required fields, patterns, min/max values
+
+4. **PreviewForm** (`pages/PreviewForm.tsx`)
+   - Displays form preview
+   - Tests form validation
+   - Simulates form submission
+
+## Contributing
+
